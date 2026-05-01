@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+  
+  --color-cyber-bg: #0E1012;
+  --color-cyber-surface: #16191E;
+  --color-cyber-border: #23272E;
+  --color-cyber-primary: #00FF41;
+  --color-cyber-secondary: #008F24;
+  --color-cyber-text: #E0E6ED;
+  --color-cyber-text-muted: #64748B;
+  --color-cyber-error: #FF4B2B;
+  --color-cyber-warning: #EAB308;
+}
+
+:root {
+  background-color: var(--color-cyber-bg);
+  color: var(--color-cyber-text);
+}
+
+body {
+  @apply font-sans;
+  margin: 0;
+  padding: 0;
+}
+
+.typing-cursor {
+  width: 3px;
+  height: 1.1em;
+  background-color: var(--color-cyber-primary);
+  animation: blink 1s step-end infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.letter-correct {
+  color: #E0E6ED;
+}
+
+.letter-incorrect {
+  color: #FF4B2B;
+  background: rgba(255, 75, 43, 0.1);
+  border-radius: 2px;
+}
+
+.letter-pending {
+  color: #334155;
+}
+
+.card {
+  @apply bg-cyber-surface border border-cyber-border rounded-xl p-6;
+}
+
+.metric-value {
+  @apply text-[42px] font-light leading-none text-cyber-text;
+}
+
+.metric-label {
+  @apply text-[11px] text-cyber-text-muted uppercase mt-1 tracking-widest;
+}
+
+.xp-pill {
+  @apply bg-cyber-primary/10 border border-cyber-primary/30 py-1 px-3 rounded-full text-[11px] text-cyber-primary font-bold;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cyber-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyber-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyber-primary);
+}
